@@ -1,0 +1,878 @@
+/* reset css taken from http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/****   GothamSSm  FONT-FAMILY ****/
+@font-face {
+  font-family: 'REGULAR_FONT';
+  src: url("../fonts/GothamSSm-Book.otf"); }
+
+@font-face {
+  font-family: 'BOLD_FONT';
+  src: url("../fonts/GothamSSm-Bold.otf"); }
+
+@font-face {
+  font-family: 'MEDIUM_FONT';
+  src: url("../fonts/GothamSSm-Medium.otf"); }
+
+@font-face {
+  font-family: 'LIGHT_FONT';
+  src: url("../fonts/GothamSSm-Light.otf"); }
+@media (min-width: 500px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 700px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	/* font-style font-variant font-weight font-size/line-height font-family|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit; */
+	font-family: REGULAR_FONT;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/******************mathjax starts ******************************/
+
+.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0px; padding: 1px 0px}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: block}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: span}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-ex-box-test {position: absolute; width: 1px; height: 60ex}
+.MJXc-TeX-unknown-R {font-family: monospace; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: monospace; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: monospace; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: monospace; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*0*/: url('otf/MathJax_AMS-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*0*/: url('otf/MathJax_Caligraphic-Bold.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*0*/: url('otf/MathJax_Fraktur-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*0*/: url('otf/MathJax_Fraktur-Bold.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*0*/: url('otf/MathJax_Math-BoldItalic.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*0*/: url('otf/MathJax_SansSerif-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*0*/: url('otf/MathJax_SansSerif-Bold.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*0*/: url('otf/MathJax_SansSerif-Italic.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*0*/: url('otf/MathJax_Script-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*0*/: url('otf/MathJax_Typewriter-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*0*/: url('otf/MathJax_Caligraphic-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*0*/: url('otf/MathJax_Main-Bold.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*0*/: url('otf/MathJax_Main-Italic.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*0*/: url('otf/MathJax_Main-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*0*/: url('otf/MathJax_Math-Italic.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*0*/: url('otf/MathJax_Size1-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*0*/: url('otf/MathJax_Size2-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*0*/: url('otf/MathJax_Size3-Regular.otf') format('opentype');}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*0*/: url('otf/MathJax_Size4-Regular.otf') format('opentype');}
+/******************mathjax ends *******************************/
+
+
+
+/*********************fixes for above**************************/
+body {
+  overflow-x: hidden;
+}
+
+.mjx-chtml {
+    font-size: 1.3em;
+    max-width: 100% !important;
+}
+
+/*
+.mjx-chtml::-webkit-scrollbar-button:start:decrement,
+.mjx-chtml::-webkit-scrollbar-button:end:increment,
+.mjx-chtml::-webkit-scrollbar-track-piece,
+.mjx-chtml::-webkit-scrollbar-thumb:vertical,
+.mjx-chtml::-webkit-scrollbar-thumb:horizontal,
+.mjx-chtml::-webkit-scrollbar {
+  display1: none !important;
+  visibility1: hidden !important;
+  height: 0px !important;
+  width: 0px !important;
+  background: transparent;
+  border: none;
+}
+
+.mjx-chtml::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}*/
+
+.mjx-chtml::-webkit-scrollbar {
+    width: 0px !important;
+}
+
+.mjx-chtml::-webkit-scrollbar:vertical {
+    display: none;
+}
+
+.mjx-chtml::-webkit-scrollbar:horizontal {
+    height: 4px;
+}
+
+.mjx-chtml::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.3) !important;
+    -webkit-border-radius: 5px !important;
+    border-radius: 5px !important;
+}
+
+/* Handle */
+.mjx-chtml::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px !important;
+    border-radius: 5px !important;
+    background: #41617D !important;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.5) !important;
+}
+
+.mjx-chtml::-webkit-scrollbar-thumb:window-inactive {
+    background: #41617D !important;
+}
+
+/*************end of reset css ********************************/
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+/**:not(input,textarea) { /* this does same as above - too lazy to change eveerywhere *
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Disable selection/copy in UIWebView *
+}*/
+
+.tnl-text-style {
+    text-align: justify;
+    word-wrap: break-word;
+    line-height: 1.3em;
+}
+
+.custom-opts-container .tnl-text-style {
+    font-size: 0.938em;
+    color: #333333;
+    font-family: REGULAR_FONT;
+}
+
+.tnl-text-style img {
+    /* do not allow to overflow its container */
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/* in case its a big image we want to center align it. however since we cannot distinguish between
+ * an image that is to be displayed inline vs in a block. we do that from js */
+img.middle-align {
+    margin: auto;
+    display: block;
+}
+
+#question-template,
+#solution-template,
+#opt-item-template,
+#opt-solution-template {
+    display: none;
+}
+
+/* Questions related */
+.question-text {
+    margin: 0.3em 0.1em 0.1em 0.1em; /* required in case there is a formula on first line. */
+}
+
+.question-text-top-padding {
+    margin-top: 1em;
+}
+
+.custom-question-text {
+    font-size: 1em;
+    color: #333333;
+    font-family: REGULAR_FONT;
+}
+.question-text > p {
+    margin-bottom: 0.5em;
+}
+
+/*****************options related***************************/
+
+/* show mcq options only if its an mcq question */
+:not(.tnl-mcq) .opts-container {
+    display: none;
+}
+
+.tnl-mcq .opts-container {
+    display: block;
+    margin: 2em 0.1em 0.1em 0.1em;
+}
+
+/* header options */
+.opts-container .opts-header {
+    color: #666666;
+    font-size: 0.9em;
+}
+
+.tnl-mcq.tnl-single .opts-container .opts-header:before {
+    content: 'OPTIONS';
+}
+
+.tnl-mcq.tnl-single .custom-opts-container .opts-header:before {
+    content: '';
+}
+
+.tnl-mcq.tnl-multi .opts-container .opts-header:before {
+     content: 'CHOOSE ONE OR MORE OPTIONS';
+ }
+
+ .tnl-mcq.tnl-multi .custom-opts-container .opts-header:before {
+     content: 'Choose one or more Options';
+ }
+
+.opts-container ul.opts-list {
+    margin: 0.8em 0;
+}
+
+
+/* handle the option items  the border changes so we switch between having a padding of 1px and 0px */
+.opts-container li {
+    margin: 0 0 1em 0;
+    border: solid 1px #979797;
+    border-radius: 4px;
+    padding: 1px;
+   // overflow-x: hidden;
+}
+.custom-opts-container li {
+    border: solid 1px  rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.18);
+    display: flex;
+    flex-direction: column;
+}
+
+.opts-container li.selected,
+.opts-container li.opt-correct {
+    padding: 0px;
+}
+
+/* handle the colors for selection */
+.opts-container li.selected {
+    border: solid 2px #333333;
+}
+
+.custom-opts-container li.selected {
+    box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.18);
+    border: solid 2px #979797;
+    animation: leaves 0.1s linear;
+}
+
+.custom-opts-container li.selected .tnl-text-style {
+    color: #111111;
+}
+
+
+
+.solution-mode .opts-container li.opt-correct {
+    border: solid 2px #3eb147;
+}
+
+.solution-mode .custom-opts-container li.opt-correct {
+    border: solid 2px #6fb833;
+}
+
+.solution-mode .opts-container li.selected:not(.opt-correct) {
+    border: solid 2px #f54b4b;
+}
+
+.solution-mode .custom-opts-container li.selected:not(.opt-correct) {
+    border: solid 2px #fc6174;
+}
+
+/* option items */
+
+/* handle this? .sol-container.opt-sol-container1, /* prakash */
+.opts-container li div.content-wrap {
+    display: flex;
+    margin: 1em 0.8em;
+}
+
+.opts-container li div.content-wrap .opt-content-wrap {
+    display: flex;
+    flex: 1;
+    padding-right: 5px;
+}
+
+.tablet-ui .opts-container li div.content-wrap .opt-content-wrap {
+  max-width: calc(100% - 1.5em);
+}
+
+.opts-container div.opt-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.opts-container div.ans {
+    padding: 0;
+    width: 73vw;
+    overflow-x: scroll;
+}
+
+.tablet-ui .opts-container div.ans {
+   width: auto;
+}
+
+.opts-container div.idx,
+.opts-container div.check-mark div {
+    width: 1em;
+    height: 1em;
+}
+
+.custom-opts-container div.idx {
+    font-family: BOLD_FONT;
+    font-size: 1em;
+    padding-right: 1em;
+}
+
+.opts-container div.check-mark img {
+    width: 1em;
+    height: 1em;
+}
+
+.opts-container div.check-mark div {
+    border: solid 1px #979797;
+    border-radius: 2px;
+}
+.custom-opts-container div.check-mark div {
+    border-radius: 50%;
+    margin-left: 5px;
+}
+.opts-container li.selected div.check-mark div {
+    border-color: #666666;
+    background-color: #666666;
+}
+
+.custom-opts-container li.selected div.check-mark div {
+    border-color: #999999;
+    background-color: #999999;
+}
+
+.solution-mode .opts-container li.opt-correct div.check-mark div {
+    border-color: #3eb147;
+    background-color: #3eb147;
+}
+
+.solution-mode .opts-container li.selected:not(.opt-correct) div.check-mark div {
+    border-color: #f54b4b;
+    background-color: #f54b4b;
+}
+
+/* hide check mark if its a single select */
+.tnl-single div.check-mark {
+    display: none;
+}
+
+/* if in solution mode and not selected hide it - but reserve space */
+.tnl-multi.solution-mode li:not(.selected) div.check-mark {
+    visibility: hidden;
+}
+/*************************** filler related *******************************/
+.question-text .filler {
+    border: none;
+    border-bottom: solid 2px #808080;
+    transition: border 0.2s;
+    outline: 0px solid transparent;
+
+    text-transform: lowercase;
+    background: inherit;
+    font-size: 1em;
+
+    position: relative;
+    top: -2px;
+    padding: 1px 0px 0px 0px;
+}
+
+.question-text .filler.fill-correct {
+    border-color: green;
+}
+
+.question-text .filler.fill-incorrect {
+    border-color: #fa655c;
+}
+
+.fill-help {
+    color: #333333;
+    opacity: .4;
+    display: none;
+    text-align: center;
+    width: auto;
+    padding: 3em 1em;
+}
+
+.question-mode.tnl-filler .fill-help {
+    display: block;
+}
+
+/* We need some space so that the question can scroll up. We enable this only if its a filler question
+ * and in question mode */
+.scroll-padding {
+    display: none;
+}
+
+.question-mode.tnl-filler .scroll-padding {
+    display: block;
+    height: 300px;
+}
+
+.needs-scroll-padding.scroll-padding {
+    display: block;
+    height: 20vw;
+}
+/* solution for filler */
+.sol-container {
+    display: none;
+}
+
+.opts-container .sol-container {
+    padding: 0 0.8em;
+}
+
+.sol-container .sol-header {
+    color: #3eb147;
+    font-weight: bold;
+    display: block;
+}
+
+.custom-opts-container .sol-container .sol-header {
+   color: #6fb833;
+   font-weight: normal;
+   float: left;
+   padding-right: 5px;
+}
+.custom-opts-container .sol-container .sol-header:after {
+    content: ':'
+}
+
+.sol-container > div {
+    margin: 0.5em 0;
+}
+.custom-opts-container .sol-container {
+    font-size: 0.938em;
+    font-family: REGULAR_FONT;
+    width: calc(100% - 24px);
+}
+
+.sol-container .solution-ans > div {
+    display: inline-block;
+}
+
+.sol-container .sol-text {
+    margin: 0.5em 0em;
+    display: inline-block;
+    width: 100%;
+}
+.custom-opts-container .sol-container .sol-text {
+    display: block;
+    margin: 0;
+}
+
+/* question skills */
+.question-skills {
+    display: none;
+    margin: 1em 0;
+}
+
+.question-skills .q-skill {
+    display: inline-block;
+    margin: 0em .5em 0em 0em;
+    padding: .25em .7em .25em .7em;
+    border-radius: 1em;
+    line-height: 1.2em;
+    border: solid 1px #999999;
+    min-width: 5.063em;
+    text-align: center;
+    min-height: 1.500em;
+    box-sizing: border-box;
+}
+.question-skills .q-skill .q-skill-text {
+    font-family: LIGHT_FONT;
+    color: #999999;
+    font-size: 0.6em;
+    display: flex;
+    justify-content: center;
+}
+
+/******** solution all related *********/
+.solution-meta {
+    display: table;
+    margin: 1em 0;
+    width: 100%;
+}
+
+.solution-meta > div {
+    display: table-cell;
+    width: 100%;
+}
+
+.solution-meta .sol-link {
+    color: #6c69fc;
+    text-align: right;
+}
+
+.sol-item {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.sol-item .sol-no,
+.sol-item .sol-wrapper {
+    display: table-cell;
+}
+
+.sol-item .sol-no {
+    min-width: 1.5em;
+    max-width: 1.5em;
+    width: 1.5em;
+}
+
+.sol-item .sol-wrapper {
+    width: auto;
+}
+
+.solution-ans {
+    display: none;
+}
+
+.solution-ans.incorrect .sol-header {
+    color: #fa655c;
+}
+
+.opt-sol-container {
+    display: inline-block;
+}
+
+#solutions li {
+    border: solid 1px #c0c0c0;
+    padding: 1em;
+}
+
+.tnl-essay .solution-text-toggle-btn {
+    text-align: right;
+    color: #6C4CCB;
+    vertical-align: middle;
+    margin: 1em 0;
+}
+
+.tnl-essay .solution-text-toggle-btn:before {
+    content: 'Show Solution';
+}
+
+.tnl-essay .expanded .solution-text-toggle-btn:before {
+    content: 'Hide Solution';
+}
+
+/****************************passages********************/
+.passage-container {
+    border: solid 1px #00c4fa;
+    border-radius: 4px;
+    display: none;
+    padding: 0.5em;
+    margin: 0 0 1em 0;
+}
+
+.passage-header {
+    font-weight: bold;
+}
+
+.passage-text {
+    margin: 0.5em 0;
+}
+
+.passage-toggle-btn {
+    color:#00c4fa;
+    width: 100%;
+    margin: 0.5em 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.passage-toggle-btn:before {
+    content: 'Expand';
+}
+
+.expanded-passage .passage-toggle-btn:before {
+    content: 'Collapse';
+}
+
+.passage-text {
+    height: 2.5em;
+    overflow: hidden;
+}
+
+.expanded-passage .passage-text {
+    height: auto;
+    overflow: auto;
+}
+
+/*********hints************/
+#hints {
+    margin: .5em 1em;
+}
+
+.hint-title {
+    text-align: center;
+    margin: .5em 0em;
+}
+.custom-hint .hint-title {
+    text-transform: capitalize;
+    text-align: left;
+    margin: .75em 0em;
+    font-size: 1.20em;
+    font-family: MEDIUM_FONT;
+}
+
+.custom-hint .hint-body {
+    font-size: 0.938em;
+    line-height: 1.3;
+    color: #666666;
+    font-family: REGULAR_FONT;
+    padding-bottom: 1em;
+}
+/**********video solutions ***********/
+.video-solution-wrapper .video-thumbnail {
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+.video-solution-wrapper {
+    position: relative;
+    width: 50%;
+}
+
+.video-solution-wrapper .thumbnail-wrapper:after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    border-radius: 5px;
+}
+
+.video-solution-wrapper .video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+}
+
+.video-solution-wrapper .video-play-icon img {
+    margin-top: -50%;
+    margin-left: -50%;
+}
+.tnl-multi .custom-opts-container div.idx {
+    padding-right: 1em;
+}
+.tnl-multi .custom-opts-container .ans.opt-content.tnl-text-style {
+    flex: 1;
+    overflow: auto;
+    padding: 0
+}
+
+
+.tablet-ui .tnl-multi .custom-opts-container .ans.opt-content.tnl-text-style {
+    max-width: 50vw;
+}
+
+
+.tablet-ui.tnl-mcq .tablet-flex-box {
+    display: flex;
+    min-height: 400px;
+}
+.tablet-ui.tnl-mcq .tablet-question-box {
+    display: flex;
+    width: 45%;
+    overflow: scroll;
+    margin-right: 1em;
+    flex-direction: column;
+}
+
+.tablet-ui.tnl-mcq .table-divider {
+    min-height: 350px;
+    height: 60%;
+    width: 1px;
+    background-color: #eeeeee;
+    display: flex;
+    align-self: flex-start;
+    opacity: 0.52;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.tablet-ui.tnl-mcq .tablet-answer-box {
+    display: flex;
+    width: 55%;
+    flex-direction: column;
+}
+.tablet-ui.tnl-mcq .tablet-answer-box .opts-container {
+    margin: 0em 0.1em 0.1em 1em;
+}
+.tablet-ui.tnl-mcq .needs-scroll-padding.scroll-padding {
+    display: none;
+}
+
+.tablet-ui.tnl-mcq.tablet-ui-extra-bottom-space .needs-scroll-padding.scroll-padding {
+ display: block;
+}
+
+.tablet-ui.tnl-mcq .question-skills {
+   margin-left: 1em;
+}
+@keyframes leaves {
+    0% {
+        transform: scale(1, 1);
+        -webkit-transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(0.95, 0.95);
+        -webkit-transform: scale(0.95, 0.95);
+    }
+    100% {
+        transform: scale(1, 1);
+        -webkit-transform: scale(1, 1);
+    }
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+}

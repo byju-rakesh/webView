@@ -1,0 +1,189 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="test_engine.css">
+
+    <script type="text/javascript" src="jquery-3.6.3.min.js"></script>
+    <script type="text/javascript" src="jquery-migrate-1.4.1.min.js"></script>
+    <script type="text/javascript" src="fastclick.js"></script>
+    <script type="text/javascript" src="test_engine.js"></script>
+
+    <!-- include only one of the below -->
+    <!--<script type="text/javascript" src="test_engine_web.js"></script>-->
+    <script type="text/javascript" src="test_engine_android.js"></script>
+    <!--<script type="text/javascript" src="test_engine_ios.js"></script>-->
+
+    <script type="text/javascript">
+            var _mode = $(document).getUrlParam('mode');
+            isQuestionMode = _mode == 'question';
+            isSolutionMode = _mode == 'solution';
+            isHintsMode = _mode == 'hints';
+            isSubjectiveQuestion = false;
+            needsScrollPadding = ($(document).getUrlParam('pad') != null);
+            isStyleCustomized = $(document).getUrlParam('isStyleCustomized');
+            $(document).ready(function() {
+                  FastClick.attach(document.body);
+            });
+
+
+            function doRenderQuestion(q) {
+               var subjectColor = decodeURIComponent(q['subject_color'] || '#5e93ff');  // Adding Default Color inCase of Null
+               $('.opts-color').css({
+                color: subjectColor,
+               })
+               var toUpdate = {
+                    tc: '#q .question-skills',
+                    qc: '#q .question-text',
+                    fhc: '#q .fill-help',
+                    oc: '#q .opts-container',
+                    sc: '#q .sol-container',
+                    pc: '#q .passage-container'
+                };
+
+                var cls = isQuestionMode ? 'question-mode' : 'solution-mode';
+                $('#q').empty()
+                    .removeClass()
+                    .addClass(testModule.getQuestionClasses(q))
+                    .append($('#question-template').children().clone())
+
+                if(q.isTablet) {
+                    $('#q').addClass('tablet-ui')
+                }
+                if(q.isTablet && q.isExtraBottomSpaceRequired) {
+                    $('#q').addClass('tablet-ui-extra-bottom-space')
+                }
+                testModule.renderQuestion(toUpdate, q);
+            }
+
+            if (isHintsMode) {
+
+                qp.getHintsData(function(hintTitle, hintText) {
+                    $(document).ready(function() {
+                        if(isStyleCustomized) {
+                            $('#hints').addClass('custom-hint')
+                        }
+                        $('#hints')
+                            .find('.hint-title')
+                                .html(hintTitle)
+                            .end()
+                            .find('.hint-body')
+                                .html(hintText)
+                             .end()
+                        .show();
+                    });
+                });
+            } else {
+                var questionID = $(document).getUrlParam('question_id');
+                qp.getQuestionData(questionID, function(q) {
+                     isSubjectiveQuestion = q['type'] == 'EssayQuestion';
+                     $(document).ready(function() {
+                        doRenderQuestion(q);
+                     });
+                });
+            }
+
+            var _getMCQData = function() { return testModule.getMCQData('#q .opts-list'); }
+            var _getFillerData = function() { return testModule.getFillerData('#q .question-text'); }
+            var _renderEvaluatedResult = function(questionData, showSolutionText) {
+                isSolutionMode = true;
+                isQuestionMode = false; //BAD HACK :(
+                doRenderQuestion(questionData);
+                if (!showSolutionText) {
+                    $('#q .sol-container').hide();
+                }
+                $('#q .question-skills').hide();
+                if (!showSolutionText) {
+                    $('#q ul.opts-list .opt-correct:not(.selected)').removeClass('opt-correct');
+                }
+            }
+
+            var _resetAndRenderQuestion = function(questionData) {
+                isSolutionMode = false;
+                isQuestionMode = true; //BAD HACK :(
+                doRenderQuestion(questionData);
+                $('#q .question-skills').hide();
+            }
+
+
+
+    </script>
+</head>
+<body class="no-select">
+<div id="q"></div>
+<div id="hints">
+    <h4 class='hint-title'></h4>
+    <div class="hint-body"></div>
+</div>
+
+<div id="question-template">
+    <div class="tablet-flex-box">
+        <div class="tablet-question-box">
+            <div class="passage-container">
+                <div class="passage-header">Read the following passage</div>
+                <div class="passage-text tnl-text-style"></div>
+                <div class="passage-toggle-btn"></div>
+            </div>
+            <div class="question-text tnl-text-style"></div>
+            <div class="fill-help no-select">Tap the blank to answer</div>
+        </div>
+        <div class="table-divider"></div>
+        <div class="tablet-answer-box">
+            <div class="sol-container">
+                <div class="solution-ans">
+                    <div class="sol-header">Correct Answer:</div>
+                    <div class="sol-text"></div>
+                </div>
+                <div class="solution-text-toggle-btn"></div>
+                <div class="solution-text">
+                    <div class="sol-header">Solution</div>
+                    <div class="sol-text tnl-text-style"></div>
+                </div>
+            </div>
+            <div class="opts-container">
+                <div class="opts-header"></div>
+                <ul class="opts-list"></ul>
+            </div>
+
+            <div class="question-skills"></div>
+        </div>
+    </div>
+    <div class='scroll-padding'></div>
+</div>
+
+<div id="opt-item-template">
+    <li>
+        <div class="content-wrap">
+            <div class="opt-content-wrap">
+                <div class="idx opt-content opts-color"></div>
+                <div class="ans opt-content tnl-text-style"></div>
+            </div>
+            <div class="check-mark opt-content">
+                <div><img src="tick.png"></div>
+            </div>
+        </div>
+    </li>
+</div>
+
+<div id="opt-solution-template">
+    <div class="sol-container opt-sol-container">
+        <div class="solution-text">
+            <div class="sol-header">Solution</div>
+            <div class="sol-text tnl-text-style"></div>
+        </div>
+
+        <div class="video-solution-wrapper" style="display: none;">
+            <div class="thumbnail-wrapper">
+                <img class="video-thumbnail"/>
+            </div>
+            <div class="video-play-icon">
+                <img id="img_icon" src="ic_play.png"/>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

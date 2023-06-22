@@ -1,0 +1,88 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="test_engine.css">
+
+    <script type="text/javascript" src="jquery-3.6.3.min.js"></script>
+    <script type="text/javascript" src="jquery-migrate-1.4.1.min.js"></script>
+    <script type="text/javascript" src="fastclick.js"></script>
+    <script type="text/javascript" src="test_engine.js"></script>
+
+    <!-- include only one of the below -->
+    <!--<script type="text/javascript" src="test_engine_web.js"></script>-->
+    <script type="text/javascript" src="test_engine_android.js"></script>
+    <!--<script type="text/javascript" src="test_engine_ios.js"></script>-->
+
+    <script type="text/javascript">
+            isQuestionMode = $(document).getUrlParam('mode') !== 'solution';
+            isSolutionMode = !isQuestionMode;
+            $(document).ready(function() {
+                FastClick.attach(document.body);
+            });
+
+            var rawQuestionIDs = $(document).getUrlParam('question_ids') || '';
+            if (rawQuestionIDs) {
+                var questionIDs = decodeURIComponent(rawQuestionIDs).split(',');
+                $.each(questionIDs, function(i, questionID) {
+                      qp.getQuestionData(questionID, function(q) {
+                          $(document).ready(function(){
+                              var sol = $('<li></li>')
+                                  .wrapInner($('#solution-template').children().clone())
+                                  .find('.sol-link')
+                                      .click(function() {
+                                          qp.solutionClicked(questionID);
+                                      })
+                                      .end()
+                                  .find('.sol-no')
+                                      .html(q['q_num'] + '.')
+                                      .end()
+                                  .appendTo('#solutions');
+
+                              var toUpdate = {
+                                  tc: $('.question-skills', sol),
+                                  qc: $('.question-text', sol),
+                                  fhc: $('.fill-help', sol),
+                                  sc: $('.sol-container', sol)
+                              };
+
+                              testModule.renderQuestion(toUpdate, q, true);
+                          });
+                      });
+                });
+            }
+
+
+            var _solutionClicked = qp.solutionClicked;
+
+    </script>
+</head>
+<body class="no-select">
+<div id="solution-template">
+    <div class="sol-item">
+        <div class="sol-no"></div>
+        <div class="sol-wrapper">
+            <div class="question-text tnl-text-style"></div>
+        </div>
+    </div>
+    <div class="sol-container">
+        <div class="solution-ans">
+            <div class="sol-header">Your Ans:</div>
+            <div class="sol-text"></div>
+        </div>
+        <div class="solution-text">
+            <div class="sol-header" style="display:inline;">Ans:</div>
+            <div class="sol-text"></div>
+        </div>
+    </div>
+    <div class="solution-meta">
+        <div class="question-skills"></div>
+        <div class="sol-link">SOLUTION</div>
+    </div>
+</div>
+<ul id='solutions'>
+</ul>
+</body>
+</html>
