@@ -83,8 +83,86 @@ class TestJsWrapper extends StatelessWidget {
   //       return "";
   //   }
 
+  Map<String, dynamic> doPrepareQuestionData(QuestionModel questionParser) {
+    var jsonObj = <String, dynamic>{};
+
+    jsonObj['type'] = questionParser.type;
+    jsonObj['skills'] = ""; // getQuestionSkills(questionParser);
+
+    //var passageModel = questionParser.passageModel;
+    // if (passageModel != null && passageModel.passageBody.isNotEmpty) {
+    //   jsonObj['passage'] = passageModel.passageBody;
+    // } else if (questionParser.passageId > 0) {
+    //   if (passage != null) {
+    //     jsonObj['passage'] = passage.body();
+    //   }
+    // }
+
+    jsonObj['title'] = questionParser.title;
+    jsonObj['solution'] = questionParser.solution;
+
+    var solutionVideoId = questionParser.solutionVideoId;
+    if (solutionVideoId! > 0) {
+      var videoThumbUrl = ""; // getVideoSolutionThumbnailUrl(solutionVideoId);
+
+      var isSolutionVideoLocked = true;
+      // if (onAnswerProcessedListener != null) {
+      //   isSolutionVideoLocked = onAnswerProcessedListener.isSolutionVideoLocked(solutionVideoId);
+      // }
+
+      jsonObj['videoSolutionId'] = solutionVideoId;
+      jsonObj['videoSolutionThumbnailUrl'] = videoThumbUrl;
+      jsonObj['isSolutionVideoLocked'] = isSolutionVideoLocked;
+    }
+
+    var startColor = '#${subjectStartColor.toRadixString(16)}';
+    var endColor = '#${subjectEndColor.toRadixString(16)}';
+    if (!isStyleCustomized) {
+      startColor = '#000000';
+      endColor = '#000000';
+    }
+
+    jsonObj['subject_color'] = endColor;
+    jsonObj['isStyleCustomized'] = isStyleCustomized;
+    jsonObj['isTopPaddingRequired'] = isTopPaddingRequired;
+    // jsonObj['isTablet'] = ViewUtils.isTablet(webView.context);
+    jsonObj['isExtraBottomSpaceRequired'] = isExtraBottomSpaceRequired;
+    jsonObj['disableSolutionInOptions'] = disableSolutionInOptions;
+
+    jsonObj['answers'] = ""; //prepareAnswerData(questionParser);
+
+    return jsonObj;
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
   }
+}
+
+class QuestionModel {
+  List<String>? images = [];
+  late String? type;
+  late int? categoryId;
+  late int? passageId;
+  late String? solution;
+  late String? title;
+  late int? solutionVideoId;
+  late double? points;
+  late double? negativePoints;
+  late double? difficulty;
+  late String? difficultyLevel;
+  late double? rating;
+  List<String>? skills = [];
+ 
+  // late List<AnswerModel>? answers;
+
+  // List<HintModel>? hints = [];
+  // late String? answerType;
+
+  // late List<FillerMetaModel>? fillerMeta;
+
+  // late List<ConceptParser>? concepts;
+  late int? effectiveDifficulty;
+  late String? metadata;
 }
