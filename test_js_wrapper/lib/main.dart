@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_js_wrapper/ui/widgets/webview.dart';
+import 'package:test_js_wrapper/ui/widgets/test_js_wrapper.dart';
 
 void main() => runApp(const MyApp());
 
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:const WebViewHomeWidget(),
+      home:TestJsWrapper(mode: 'question', downloadFilePath: '', videoThumbnailBaseUrl: '', defaultQuestionId: 122638, subjectName: 'History', assessmentId: '', isStyleCustomized: true, isInAdaptiveFlow: true, isTopPaddingRequired: true, isExtraBottomSpaceRequired: true, disableSolutionInOptions: true)
     );
   }
 }
